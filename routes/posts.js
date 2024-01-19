@@ -4,6 +4,22 @@ var ObjectId = require('mongodb').ObjectId;
 
 const router = express.Router();
 
+async function dbConnect(req, res, next) {
+    try {
+      req.db = await connectToDb();
+      next();
+    } catch (error) {
+      next(error); // Forward the error to the error handling middleware
+    }
+}
+router.use(dbConnect);
+
+
+function errorHandler(err, req, res, next) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+
 // Get a list of 50 posts
 router.get("/", async (req, res) => {
   try {
@@ -12,8 +28,7 @@ router.get("/", async (req, res) => {
     const results = await collection.find({}).limit(50).toArray();
     res.send(results).status(200);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+        next(error);
   }
 });
 
@@ -29,8 +44,7 @@ router.get("/latest", async (req, res) => {
     ]).toArray();
     res.send(results).status(200);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+        next(error);
   }
 });
 
@@ -45,8 +59,7 @@ router.get("/:id", async (req, res) => {
     if (!result) res.status(404).send("Not found");
     else res.send(result).status(200);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+        next(error);
   }
 });
 
@@ -60,8 +73,7 @@ router.post("/", async (req, res) => {
     const result = await collection.insertOne(newDocument);
     res.status(204).send(result);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+        next(error);
   }
 });
 
@@ -75,8 +87,7 @@ router.patch("/comment/:id", async (req, res) => {
     const result = await collection.updateOne(query, updates);
     res.send(result).status(200);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+        next(error);
   }
 });
 
@@ -89,9 +100,10 @@ router.delete("/:id", async (req, res) => {
     const result = await collection.deleteOne(query);
     res.send(result).status(200);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+        next(error);
   }
 });
+
+router.use(errorHandler);
 
 module.exports = router;
