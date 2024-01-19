@@ -13,5 +13,10 @@
     "jade": "~1.11.0",
     "mongodb": "^6.3.0",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^5.0.0",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.4"
   }
 }
