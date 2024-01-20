@@ -1,36 +1,75 @@
-# Express
+# Mongo Express
 
-This is a basic guide to setting up an Express.js application using Git for version control and Yarn as the package manager.
+This is a basic guide to setting up an Express.js application using Git for version control and Yarn as the package manager. This setup includes integration with MongoDB, a popular NoSQL database.
 
-# Setup
-## Git
+## Setup
+### Git
 To install git and set up your project repository:
 
-- Create a new directory for your project: `mkdir <project-dirname>`
-- Change into your project directory: `cd <project-dirname>`
-- Initialize a new Git repository: `git init`
-- Create an empty Git repository on a platform like GitHub or GitLab
-- Add the remote repository URL to your local repository: `git remote add origin <repository clone url>`
+1. Create a new directory for your project: `mkdir <project-dirname>`
+2. Change into your project directory: `cd <project-dirname>`
+3. Initialize a new Git repository: `git init`
+4. Create an empty Git repository on a platform like GitHub or GitLab
+5. Add the remote repository URL to your local repository: `git remote add origin <repository clone url>`
 
-## Yarn - Package Manager
+### Yarn - Package Manager
 To set up Yarn as your package manager:
 
+- Download and install Yarn from [Yarn Installation Guide](https://classic.yarnpkg.com/en/docs/install)
 - Ensure you are in your project directory: `cd <project-dirpath>`
 - Initialize your project with Yarn: `yarn init -y`
-
-### Setup Dependencies
-- Add Express to your project: `yarn add express`
-- Generate an Express skeleton application: `npx express-generator`
 
 ## Usage
 
 ### Install Yarn Dependencies
-- Install all the project dependencies defined in your `package.json`: `yarn install`
+- To install all the project dependencies defined in your `package.json`, run: `yarn install`
 
 ### Run the Application
-- Start your Express application: `yarn start`
+- Start your Express application using Yarn: `yarn start`
 
 ## Test
+To run tests for your application, use the following command:
+- `yarn test`
+
+### Manual Build
+For manual build and setup from scratch, follow these steps:
+
+- Generate an Express skeleton application: `npx express-generator`
+- Copy following dependencies into `package.json` object:
+  ```json
+  "dependencies": {
+      "axios": "^1.6.5",
+      "cookie-parser": "~1.4.4",
+      "debug": "~2.6.9",
+      "express": "~4.16.1",
+      "http-errors": "~1.6.3",
+      "jade": "~1.11.0",
+      "mongodb": "^6.3.0",
+      "morgan": "~1.9.1"
+    },
+  "devDependencies": {
+      "chai": "^5.0.0",
+      "jest": "^29.7.0",
+      "mocha": "^10.2.0",
+      "mongodb-memory-server": "^9.1.6",
+      "node-mocks-http": "^1.14.1",
+      "npm-run-all": "^4.1.5",
+      "supertest": "^6.3.4"
+    }
+  ```
+- `yarn install`
+
+
+## Suggested Development Tools
+### Postman
+Postman is a popular API client that makes it easy to create, share, test, and document APIs. It offers a straightforward user interface for sending HTTP requests and viewing responses. 
+
+- Download and installation instructions: [Download Postman](https://www.postman.com/downloads/)
+
+### Mongo Compass
+Mongo Compass is the official GUI for MongoDB. It allows you to visually explore your data, run queries, and interact with your MongoDB database.
+
+- Download and installation instructions: [Download MongoDB Compass](https://www.mongodb.com/try/download/compass)
 
 ## References
 - For more information on the Express Application Generator, visit [Express Application Generator](https://expressjs.com/en/starter/generator.html).
