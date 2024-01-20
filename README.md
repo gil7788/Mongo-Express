@@ -48,13 +48,8 @@ For manual build and setup from scratch, follow these steps:
       "morgan": "~1.9.1"
     },
   "devDependencies": {
-      "chai": "^5.0.0",
       "jest": "^29.7.0",
-      "mocha": "^10.2.0",
-      "mongodb-memory-server": "^9.1.6",
       "node-mocks-http": "^1.14.1",
-      "npm-run-all": "^4.1.5",
-      "supertest": "^6.3.4"
     }
   ```
 - `yarn install`
