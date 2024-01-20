@@ -31,11 +31,10 @@ To set up Yarn as your package manager:
 To run tests for your application, use the following command:
 - `yarn test`
 
-### Manual Build
+## Manual Build
 For manual build and setup from scratch, follow these steps:
 
-- Generate an Express skeleton application: `npx express-generator`
-- Copy following dependencies into `package.json` object:
+- Generate an Express skeleton application: `npx express-generator`. For more details, refer to the [Express Application Generator](https://expressjs.com/en/starter/generator.html) guide.- Copy following dependencies into `package.json` object:
   ```json
   "dependencies": {
       "axios": "^1.6.5",
@@ -68,3 +67,4 @@ Mongo Compass is the official GUI for MongoDB. It allows you to visually explore
 
 ## References
 - For more information on the Express Application Generator, visit [Express Application Generator](https://expressjs.com/en/starter/generator.html).
+- For a comprehensive guide on MongoDB Data Model Design, see the "Data Model Design for MongoDB.pdf" file located in the root directory of this project. Might be outdated as it was public at 2015.
