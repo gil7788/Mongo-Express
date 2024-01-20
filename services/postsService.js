@@ -79,4 +79,11 @@ async function deletePostById(req, res, next) {
       }
 }
 
-
+module.exports = {
+    getPosts,
+    getLatestPosts,
+    getSinglePost,
+    addNewPost,
+    addCommentToPost,
+    deletePostById
+};
