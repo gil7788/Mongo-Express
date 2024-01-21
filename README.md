@@ -34,7 +34,8 @@ To run tests for your application, use the following command:
 ## Manual Build
 For manual build and setup from scratch, follow these steps:
 
-- Generate an Express skeleton application: `npx express-generator`. For more details, refer to the [Express Application Generator](https://expressjs.com/en/starter/generator.html) guide.- Copy following dependencies into `package.json` object:
+- Generate an Express skeleton application: `npx express-generator`. For more details, refer to the [Express Application Generator](https://expressjs.com/en/starter/generator.html) guide.
+- Copy following dependencies into `package.json` object:
   ```json
   "dependencies": {
       "axios": "^1.6.5",
